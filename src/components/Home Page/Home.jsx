@@ -52,7 +52,7 @@ export default function Home(){
                     <motion.div variants={divVariant} initial='hidden' animate='animate' className="relative flex flex-col items-center bottom-10">
                         <div>The Land</div>
                         <div>of Maharajas</div>
-                        <div>Rajasthan</div>
+                        <div>Rajasthan </div>
                     </motion.div>
 
                 </div>
