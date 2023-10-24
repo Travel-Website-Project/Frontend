@@ -26,7 +26,7 @@ export default function Nav({elementVisible}){
 
     return (
     <div className="z-20 fixed w-full bg-transparent flex flex-wrap justify-between mr-10 font-roboto text-white h-[60px]">
-        <div className="italic flex text-3xl ml-10 cursor-pointer font-bold items-center"><div>Travel</div></div>
+        <div className="italic flex text-5xl ml-10 cursor-pointer font-bold items-center"><div>Travel</div></div>
         <AnimatePresence>
         {!elementVisible &&
             <motion.div variants={animateVariant} initial='hidden' animate='visible' exit='exit' className="text-2xl">

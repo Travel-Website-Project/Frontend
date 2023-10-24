@@ -12,7 +12,7 @@ export default function Home(){
         <Nav  elementVisible={elementVisible}/>
       
             <div className="flex items-center justify-center w-full h-screen bg-forest bg-cover bg-no-repeat ">  
-                <div className="flex relative items-center justify-center text-white font-roboto text-4xl font-black flex-col">
+                <div className="flex relative items-center justify-center text-white font-roboto text-5xl font-black flex-col">
                     <div>Lets Discover the</div>
                     <div>World together</div>
                     
