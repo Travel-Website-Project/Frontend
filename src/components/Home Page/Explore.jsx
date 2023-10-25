@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { motion, useAnimation } from "framer-motion"
 
@@ -9,20 +9,22 @@ export default function Explore(){
     const {ref:ref1,inView:elementVisible1} = useInView();
     const {ref:ref2,inView:elementVisible2} = useInView();
     const {ref:ref3,inView:elementVisible3} = useInView();
-
+    const [doneOnce, setDoneOnce]=useState(false);
 
     useEffect(()=>{
         if(elementVisible1){
+
             animation1.start({
                 x:'0vw',
                 opacity:1,
                 transition:{duration:0.5}
             })
         }
-        if(!elementVisible1){
+        if(!elementVisible1 && !doneOnce){
+            setDoneOnce(true);
             animation1.start({x:'-10vw',opacity:0});
         }
-    },[elementVisible1,animation1]);
+    },[elementVisible1,animation1, doneOnce]);
 
     useEffect(()=>{
         if(elementVisible2){
@@ -32,10 +34,11 @@ export default function Explore(){
                 transition:{duration:0.5}
             })
         }
-        if(!elementVisible2){
+        if(!elementVisible2 && !doneOnce){
+            setDoneOnce(true);
             animation2.start({y:'-10vw',opacity:0});
         }
-    },[elementVisible2,animation2]);
+    },[elementVisible2,animation2, doneOnce]);
 
     useEffect(()=>{
         if(elementVisible3){
@@ -45,10 +48,11 @@ export default function Explore(){
                 transition:{duration:0.5}
             })
         }
-        if(!elementVisible3){
+        if(!elementVisible3 && !doneOnce){
+            setDoneOnce(true);
             animation3.start({x:'10vw',opacity:0});
         }
-    },[elementVisible3,animation3]);
+    },[elementVisible3,animation3, doneOnce]);
 
 
 

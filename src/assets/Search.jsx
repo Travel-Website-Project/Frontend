@@ -1,7 +1,7 @@
 import React from 'react'
 
 export function CharmSearch({isNav}) {
-  const heightClass = isNav? '0.8em':'0.9em';
+  const heightClass = isNav? '0.8em':'0.8em';
   
 const svgStyles = {
   filter: 'drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.5)',

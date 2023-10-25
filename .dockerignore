@@ -1,7 +1,7 @@
 .git
 .gitignore
 .env
-node-modules
+node_modules
 README*.md
 LICENSE
 Dockerfile
