@@ -40,11 +40,16 @@ export default function Login(){
             else{
                 // Handle errors here
                 console.error('Request failed');
+                setError(response.data.error)
+                
             }                
         })
             
         .catch((error) => {
-            console.error(error);
+            console.error(error.response.data.error);
+           
+            setError(error.response.data.error);
+            
         });
 
     };
@@ -54,7 +59,9 @@ export default function Login(){
 
         <div className="relative mt-40 flex flex-col h-[300px] w-[500px] shadow-xl items-center rouned-md">
             <div className="mt-5 font-roboto text-xl">Enter your details</div>
-            <input type='text' onChange={handleChange} value={loginData.email} name="email" placeholder="Enter Email" className="w-80 outline-none border-b-black border-b-[1px] mt-7"></input>
+            {error &&
+            <div className="mt-2 text-red-500">{error}</div>}
+            <input type='text' onChange={handleChange} value={loginData.email} name="email" placeholder="Enter Email" className="w-80 outline-none border-b-black border-b-[1px] mt-2"></input>
             <input type='password' onChange={handleChange} value={loginData.password} name="password" placeholder='Enter Password' className="w-80 mt-10 outline-none border-b-black border-b-[1px]"></input>
             <div className="mt-5 font-roboto text-sm text-slate-700">New User? <Link to='/signup' className="underline hover:text-black">Signup</Link></div>
             <button onClick={handleClick} className="bg-black text-white w-20 rounded-sm hover:scale-110 mt-8 font-jost" >Login</button>

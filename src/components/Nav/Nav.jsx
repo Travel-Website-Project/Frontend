@@ -51,7 +51,7 @@ export default function Nav({elementVisible}){
                 <Link to='/login'>
                 <button className="transition h-10 flex items-center justify-center cursor-pointer hover:font-bold text-xl
                hover:bg-white duration-500 hover:shadow-md hover:text-black w-[100px] rounded-2xl">
-                 Log</button>
+                 Login</button>
                  </Link>
             }
             {user &&

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { motion, useAnimation, AnimatePresence } from "framer-motion"
-import { Slide } from "react-slideshow-image";
 
 export default function Explore(){
     const animation1 = useAnimation();
@@ -162,27 +161,27 @@ export default function Explore(){
 
          {number===2 &&  
             <motion.div className="relative flex w-full h-screen" variants={slideShowVariant} initial='hidden' animate='visible' exit='exit'>
-                <div className="flex items-end justify-center basis-1/3 h-full bg-varanasi bg-[bottom_1rem] bg-cover bg-no-repeat font-roboto font-bold text-5xl text-white
+                <div className="flex items-end justify-center basis-1/3 h-full bg-varanasi bg-[bottom_1rem] bg-cover bg-no-repeat font-roboto font-bold text-[2.5rem] text-white
                 cursor-pointer hover:shadow-xl hover:z-10 hover:shadow-white">
                     <motion.div className="relative flex flex-col items-center bottom-10">
-                        <div>The Land</div>
-                        <div>of Maharajas</div>
-                        <div>Rajasthan </div>
+                        <div className="relative top-3">The Spiritual </div>
+                        <div>Capital of India</div>
+                        
                     </motion.div>
 
                 </div>
-                <div className="flex items-end justify-center basis-1/3 bg-hawa bg-[bottom_1rem] bg-cover bg-no-repeat font-roboto font-bold text-5xl text-black
+                <div className="flex items-end justify-center basis-1/3 bg-hawa bg-[bottom_1rem] bg-cover bg-no-repeat font-roboto font-bold text-[2.5rem] text-white
                 cursor-pointer hover:shadow-xl hover:z-10 hover:shadow-white">
                     <motion.div className="relative flex flex-col items-center bottom-10">
-                        <div>Explore the</div>
-                        <div>Taj Mahal</div>
+                        <div className="relative top-3">The Palace of</div>
+                        <div>Winds</div>
                     </motion.div>
                 </div>
-                <div className="flex items-end justify-center basis-1/3 bg-waterfall bg-[bottom_1rem] bg-cover bg-no-repeat font-roboto font-bold text-5xl text-white
+                <div className="flex items-end justify-center basis-1/3 bg-waterfall bg-[bottom_1rem] bg-cover bg-no-repeat font-roboto font-bold text-[2.5rem] text-white
                 cursor-pointer hover:shadow-2xl hover:z-10 hover:shadow-white">
                     <motion.div className="relative flex flex-col items-center bottom-10">
-                        <div>Top 10 Beaches</div>
-                        <div>in India</div>
+                        <div className="relative top-3">Most Visited </div>
+                        <div>Waterfalls in India</div>
                     </motion.div>
                 </div>
             </motion.div>
@@ -191,26 +190,26 @@ export default function Explore(){
         <AnimatePresence>
         {number===0 &&  
             <motion.div className="relative flex w-full h-screen" variants={slideShowVariant} initial='hidden' animate='visible' exit='exit'>
-                <div className="flex items-end justify-center basis-1/3 h-full bg-ladakh bg-[bottom_1rem] bg-cover bg-no-repeat font-roboto font-bold text-5xl text-white
+                <div className="flex items-end justify-center basis-1/3 h-full bg-ladakh bg-[bottom_1rem] bg-cover bg-no-repeat font-roboto font-bold text-[2.5rem] text-white
                 cursor-pointer hover:shadow-xl hover:z-10 hover:shadow-white">
                     <motion.div className="relative flex flex-col items-center bottom-10">
-                        <div>The Land</div>
-                        <div>of Maharajas</div>
-                        <div>Rajasthan </div>
+                        <div className="relative top-3">The Land of</div>
+                        <div>High Passes</div>
+                     
                     </motion.div>
 
                 </div>
-                <div className="flex items-end justify-center basis-1/3 bg-delhi bg-[bottom_1rem] bg-cover bg-no-repeat font-roboto font-bold text-5xl text-black
+                <div className="flex items-end justify-center basis-1/3 bg-delhi bg-[bottom_1rem] bg-cover bg-no-repeat font-roboto font-bold text-[2.5rem] text-white
                 cursor-pointer hover:shadow-xl hover:z-10 hover:shadow-white">
                     <motion.div className="relative flex flex-col items-center bottom-10">
-                        <div>Explore the</div>
-                        <div>Taj Mahal</div>
+                        <div className="relative top-3">The Capiral City:</div>
+                        <div className="">Delhi</div>
                     </motion.div>
                 </div>
-                <div className="flex items-end justify-center basis-1/3 bg-trek bg-[bottom_1rem] bg-cover bg-no-repeat font-roboto font-bold text-5xl text-white
+                <div className="flex items-end justify-center basis-1/3 bg-trek bg-[bottom_1rem] bg-cover bg-no-repeat font-roboto font-bold text-[2.5rem] text-white
                 cursor-pointer hover:shadow-2xl hover:z-10 hover:shadow-white">
                     <motion.div className="relative flex flex-col items-center bottom-10">
-                        <div>Top 10 Beaches</div>
+                        <div className="relative top-3">Popular Treks</div>
                         <div>in India</div>
                     </motion.div>
                 </div>
