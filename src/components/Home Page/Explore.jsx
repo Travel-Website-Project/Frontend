@@ -10,9 +10,9 @@ const Slideshow = () => {
 
   useLayoutEffect (()=>{
     let ctx=gsap.context(()=>{
-      const t1=gsap.timeline({ repeat: -1, yoyo: true, repeatDelay: 1});
-      const t2=gsap.timeline({ repeat: -1, yoyo: true, repeatDelay: 1});
-      const t3=gsap.timeline({ repeat: -1, yoyo: true, repeatDelay: 1});
+      const t1=gsap.timeline({ repeat: -1, yoyo: true, repeatDelay: 2});
+      const t2=gsap.timeline({ repeat: -1, yoyo: true, repeatDelay: 2});
+      const t3=gsap.timeline({ repeat: -1, yoyo: true, repeatDelay: 2});
 
       t1.to('#first',{
         xPercent:'-100',

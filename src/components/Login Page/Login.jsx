@@ -53,18 +53,21 @@ export default function Login(){
         });
 
     };
+    const marginTop=error==null?'mt-10':'mt-5';
 
     return(
         <div className="flex flex-col items-center justify-center">
 
-        <div className="relative mt-40 flex flex-col h-[300px] w-[500px] shadow-xl items-center rouned-md">
-            <div className="mt-5 font-roboto text-xl">Enter your details</div>
+        <div className="relative mt-40 flex flex-col h-[350px] w-[600px] shadow-xl items-center rouned-md">
+            <div className="mt-5 font-roboto text-2xl">Enter your details</div>
+            <>
             {error &&
-            <div className="mt-2 text-red-500">{error}</div>}
-            <input type='text' onChange={handleChange} value={loginData.email} name="email" placeholder="Enter Email" className="w-80 outline-none border-b-black border-b-[1px] mt-2"></input>
-            <input type='password' onChange={handleChange} value={loginData.password} name="password" placeholder='Enter Password' className="w-80 mt-10 outline-none border-b-black border-b-[1px]"></input>
+            <div className="mt-3 text-red-500">{error}</div>}
+            </>
+            <input type='text' onChange={handleChange} value={loginData.email} name="email" placeholder="Enter Email" className={`w-[25rem] outline-none border-b-black border-b-[1px] ${marginTop}`}></input>
+            <input type='password' onChange={handleChange} value={loginData.password} name="password" placeholder='Enter Password' className="w-[25rem] mt-10 outline-none border-b-black border-b-[1px]"></input>
             <div className="mt-5 font-roboto text-sm text-slate-700">New User? <Link to='/signup' className="underline hover:text-black">Signup</Link></div>
-            <button onClick={handleClick} className="bg-black text-white w-20 rounded-sm hover:scale-110 mt-8 font-jost" >Login</button>
+            <button onClick={handleClick} className="bg-black text-white w-20 h-8 rounded-sm hover:scale-110 mt-8 font-jost" >Login</button>
         </div>
        
 
