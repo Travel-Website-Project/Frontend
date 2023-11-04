@@ -33,7 +33,7 @@ export default function Nav({elementVisible}){
     }
 
     return (
-    <div className="z-20 fixed w-full flex flex-wrap justify-between mr-10 font-roboto text-white h-[60px]">
+    <div className="z-40 fixed w-full flex flex-wrap justify-between mr-10 font-roboto text-white h-[60px]">
         <div className="italic flex text-5xl ml-10 cursor-pointer font-bold items-center"><div>Travel</div></div>
         <AnimatePresence>
         {!elementVisible &&

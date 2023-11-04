@@ -1,8 +1,8 @@
 import SearchBar from "./SearchBar";
 import { useInView } from 'react-intersection-observer';
 import Nav from "../Nav/Nav";
-import Explore from "./Explore";
 import { motion } from "framer-motion";
+import Slideshow from "./Explore";
 
 export default function Home(){
     const animateVariant={
@@ -39,7 +39,7 @@ export default function Home(){
             
           
             
-            <Explore />
+   
             
            
         </div>
