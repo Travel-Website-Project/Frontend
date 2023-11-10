@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import HomePage from "./Pages/HomePage";
 import LoginPage from "./Pages/LoginPage";
 import SignupPage from "./Pages/SignupPage";
+import PlacePage from "./Pages/PlacePage";
 
 
 function App() {
@@ -15,6 +16,8 @@ function App() {
         <Route path="/login" element={<LoginPage />} >
         </Route>
         <Route path="/signup" element={<SignupPage />} >
+        </Route>
+        <Route exact path="/:placeName" element={<PlacePage />}>
         </Route>
       </Routes>
   </AnimatePresence>

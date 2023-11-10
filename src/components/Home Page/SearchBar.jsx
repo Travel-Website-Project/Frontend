@@ -2,6 +2,7 @@ import CharmSearch from "../../assets/Search";
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import LocationIcon from "../../assets/LocationIcon";
 export default function SearchBar({isNav}){
     const [searchInput, setSearchInput]=useState(null);
@@ -25,7 +26,7 @@ export default function SearchBar({isNav}){
         .then((response) => {               
             const json=response.data;
             if (response.status === 200) {
-                console.log(json.searchResults);
+                // console.log(json.searchResults);
                 setSearchResponse(json.searchResults);
             }
             else{
@@ -41,11 +42,15 @@ export default function SearchBar({isNav}){
            
             
         });
-
-
-
     }
 
+
+    // const handleClick=(data)=>{
+
+    //    console.log(data);
+
+
+    // }
     return(
         <div className="flex flex-col items-center mt-3">
         <motion.div className="flex items-center">
@@ -55,13 +60,14 @@ export default function SearchBar({isNav}){
         </motion.div>
         
         {searchResponse && 
-        <div className={`absolute flex flex-col ${searchResponseClass} rounded-sm bg-white/80 z-50 px-2`}>
+        <div className={`absolute flex flex-col ${searchResponseClass} rounded-sm bg-white/80 z-50`}>
         {searchResponse.map((response,index)=>(
-            <div key={index} className="flex mt-2 justify-between border-b-2 border-gray-400">
-            <div className="flex">
+            <Link to={`/${response.placeName}`} key={index}>
+            <div className="flex justify-between border-b-2 border-gray-400 cursor-pointer hover:bg-slate-500 p-2">
             
+            <div className="flex">
             <div className=""><LocationIcon /></div>
-            <div className="relative text-black text-[1.2rem] font-jost ml-2 bottom-1">{response.placeName}</div>
+            <div className="relative text-black text-[1.2rem] font-jost bottom-1">{response.placeName}</div>
             </div>  
             
             <div className="text-[1rem] text-slate-700 font-jost">
@@ -69,6 +75,7 @@ export default function SearchBar({isNav}){
             </div> 
             
             </div>
+            </Link>
         ))}
         </div>
         }

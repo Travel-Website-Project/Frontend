@@ -1,6 +1,6 @@
 import SearchBar from "../Home Page/SearchBar"
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation  } from "react-router-dom";
 import { useAuthContext } from "../../hooks/useAuthContext";
 export default function Nav({elementVisible}){
     const isNav=true;
@@ -31,9 +31,12 @@ export default function Nav({elementVisible}){
         localStorage.removeItem('user');
         dispatch({type:'LOGOUT'});
     }
+    const location = useLocation();
+    const locationPath = location.pathname; 
+    const bgColorClass = locationPath === '/' ? '':'bg-gray-900 h-20';
 
     return (
-    <div className="z-40 fixed w-full flex flex-wrap justify-between mr-10 font-roboto text-white h-[60px]">
+    <div className={`z-40 fixed w-full flex flex-wrap justify-between mr-10 font-roboto text-white  ${bgColorClass} h-[60px]`}>
         <div className="italic flex text-5xl ml-10 cursor-pointer font-bold items-center"><div>Travel</div></div>
         <AnimatePresence>
         {!elementVisible &&
