@@ -1,7 +1,11 @@
 import CharmSearch from "../../assets/Search";
 import { motion } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import axios from "axios";
+import LocationIcon from "../../assets/LocationIcon";
 export default function SearchBar({isNav}){
+    const [searchInput, setSearchInput]=useState(null);
+    const [searchResponse,setSearchResponse]=useState([]);
     const inputRef=useRef();
     const focusInput = () => {
         inputRef.current.focus();
@@ -9,11 +13,67 @@ export default function SearchBar({isNav}){
     const heightClass = isNav? 'h-[40px] ':'h-[60px]';
     const heightClass1 = isNav? 'h-[40px] text-[15px] w-60':'h-[60px] text-xl w-80';
 
+
+    const searchResponseClass = isNav? 'h-auto w-60 ':'h-auto w-[23vw]';
+    const handleChange=async (e)=>{
+        setSearchInput(e.target.value);
+
+        e.preventDefault();
+        const data={search:e.target.value}
+           
+        axios.post('http://localhost:8000/search', data)
+        .then((response) => {               
+            const json=response.data;
+            if (response.status === 200) {
+                console.log(json.searchResults);
+                setSearchResponse(json.searchResults);
+            }
+            else{
+                // Handle errors here
+                console.error('Request failed');
+                // setError(response.data.error)
+                
+            }                
+        })
+            
+        .catch((error) => {
+            console.error(error.response.data.error);
+           
+            
+        });
+
+
+
+    }
+
     return(
-        <motion.div className="flex items-center mt-3">
+        <div className="flex flex-col items-center mt-3">
+        <motion.div className="flex items-center">
             <div className={`relative flex justify-center items-center p-3 bg-white/80 rounded-l-[50px] ${heightClass} cursor-pointer`} onClick={focusInput}><div className="relative"><CharmSearch isNav={isNav}/></div></div>
-            <input type='text' className={`pl-2 outline-none font-jost relative ${heightClass1} rounded-r-[50px] bg-white/80 text-black`} ref={inputRef}
+            <input onChange={handleChange} type='text' className={`pl-2 outline-none font-jost relative ${heightClass1} rounded-r-[50px] bg-white/80 text-black`} ref={inputRef}
             placeholder="Enter the Place"></input>
         </motion.div>
+        
+        {searchResponse && 
+        <div className={`absolute top-[10vw] flex flex-col ${searchResponseClass} rounded-sm bg-white/80 z-50 px-2`}>
+        {searchResponse.map((response,index)=>(
+            <div key={index} className="flex mt-2 justify-between border-b-2 border-gray-400">
+            <div className="flex">
+            
+            <div className=""><LocationIcon /></div>
+            <div className="relative text-black text-[1.2rem] font-jost ml-2 bottom-1">{response.placeName}</div>
+            </div>  
+            
+            <div className="text-[1rem] text-slate-700 font-jost">
+                {response.stateName}
+            </div> 
+            
+            </div>
+        ))}
+        </div>
+        }
+        
+        
+        </div>
     )
 }
