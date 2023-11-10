@@ -14,7 +14,7 @@ export default function SearchBar({isNav}){
     const heightClass1 = isNav? 'h-[40px] text-[15px] w-60':'h-[60px] text-xl w-80';
 
 
-    const searchResponseClass = isNav? 'h-auto w-60 ':'h-auto w-[23vw]';
+    const searchResponseClass = isNav? 'h-auto w-[18vw] top-[3.5vw]':' top-[10vw] h-auto w-[23vw]';
     const handleChange=async (e)=>{
         setSearchInput(e.target.value);
 
@@ -55,7 +55,7 @@ export default function SearchBar({isNav}){
         </motion.div>
         
         {searchResponse && 
-        <div className={`absolute top-[10vw] flex flex-col ${searchResponseClass} rounded-sm bg-white/80 z-50 px-2`}>
+        <div className={`absolute flex flex-col ${searchResponseClass} rounded-sm bg-white/80 z-50 px-2`}>
         {searchResponse.map((response,index)=>(
             <div key={index} className="flex mt-2 justify-between border-b-2 border-gray-400">
             <div className="flex">
